@@ -21,32 +21,34 @@ public class Main {
         katalog.tambahKoleksi(bd1);
         katalog.tambahKoleksi(bd2);
 
-        // 3. Mencetak Status Polimorfik
+        //Mencetak Status Polimorfik
         katalog.cetakStatus();
 
-        // 4. Mengurutkan Katalog (Layak Pinjam, lalu Judul)
+        // 
         katalog.urut(new UrutLayakLaluJudul());
         System.out.println("=== Setelah Diurutkan (Layak lalu Judul) ===");
         katalog.cetakStatus();
 
-        // 5. Uji Eksepsi Peminjaman
+       
         System.out.println("=== Uji Peminjaman ===");
         try {
-            katalog.pinjam(bk1); // Berhasil
-            katalog.pinjam(bk1); // Gagal: Sedang dipinjam
+            katalog.pinjam(bk1); 
+            katalog.pinjam(bk1);
         } catch (PustakaException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
         try {
-            katalog.pinjam(bk2); // Gagal: Sedang diperbaiki (Tidak Layak)
+            katalog.pinjam(bk2); 
         } catch (PustakaException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
         System.out.println();
 
-        // 6. Ekspor Katalog
+        //Ekspor Katalog
         EksporKatalog.ekspor(katalog.getDaftarKoleksi());
     }
+    
+    
 }
